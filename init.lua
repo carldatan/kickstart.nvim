@@ -700,6 +700,10 @@ require('lazy').setup({
         },
       }
 
+      emmet_language_server = {
+        filetypes = { 'html', 'css', 'php' },
+      }
+
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -721,6 +725,7 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        automatic_enable = true,
         automatic_installation = false,
         handlers = {
           function(server_name)
