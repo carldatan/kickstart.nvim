@@ -700,10 +700,6 @@ require('lazy').setup({
         },
       }
 
-      emmet_language_server = {
-        filetypes = { 'html', 'css', 'php' },
-      }
-
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -738,6 +734,20 @@ require('lazy').setup({
           end,
         },
       }
+      local emmet_language_server = function()
+        require('lspconfig').emmet_language_server.setup {
+          filetypes = { 'php', 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact' },
+          init_options = {
+            showAbbreviationSuggestions = true,
+            showExpandedAbbreviation = 'always',
+            showSuggestionsAsSnippets = false,
+            syntaxProfiles = {},
+            variables = {},
+          },
+        }
+      end
+
+      emmet_language_server()
     end,
   },
 
